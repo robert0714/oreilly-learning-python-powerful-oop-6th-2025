@@ -1,0 +1,34 @@
+# Larger code run in a REPL
+
+
+>>> class FirstClass:               # Define a class object
+        def setdata(self, value):   # Define class's methods
+            self.data = value       # self is the instance
+        def display(self):
+            print(self.data)        # self.data: per instance
+
+
+>>> class SecondClass(FirstClass):                   # Inherits setdata
+        def display(self):                           # Changes display
+            print(f'Current value = "{self.data}"')
+
+
+>>> class ThirdClass(SecondClass):                     # Inherit from SecondClass
+        def __init__(self, value):                     # On "ThirdClass(value)"
+            self.data = value
+        def __add__(self, other):                      # On "self + other"
+            return ThirdClass(self.data + other)
+        def __str__(self):                             # On "print(self)", "str()"
+            return f'[ThirdClass: {self.data}]'
+        def mul(self, other):                          # In-place change: named
+            self.data *= other
+
+
+>>> class Person:
+        def __init__(self, name, jobs, age=None):      # class = data + logic
+            self.name = name
+            self.jobs = jobs
+            self.age  = age
+        def info(self):
+            return (self.name, self.jobs)
+

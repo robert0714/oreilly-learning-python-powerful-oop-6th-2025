@@ -1,0 +1,60 @@
+# On Linux, Ubuntu 22, Python 3.10, Terminal, Dual boot: same i5 device as Windows tests.
+# Not directly comparable, because Python had two releases worth of optimizations to 3.12.
+
+
+# timer
+
+/Chapter21$ python3 timer_tests.py
+Python 3.10.12 on linux
+forLoop  : 0.38339 => [0…9999]
+listComp : 0.22359 => [0…9999]
+mapCall  : 0.11036 => [0…9999]
+genExpr  : 0.33741 => [0…9999]
+genFunc  : 0.33500 => [0…9999]
+All results same.
+
+~/.../LP6E/Chapter21$ python3 timer_tests2.py
+Python 3.10.12 on linux
+forLoop  : 0.37541 => [10…10009]
+listComp : 0.22937 => [10…10009]
+mapCall  : 0.44382 => [10…10009]
+genExpr  : 0.34739 => [10…10009]
+genFunc  : 0.33483 => [10…10009]
+All results same.
+
+~/.../LP6E/Chapter21$ python3 timer_tests3.py
+Python 3.10.12 on linux
+forLoop  : 0.58460 => [0…9999]
+listComp : 0.44893 => [0…9999]
+mapCall  : 0.29401 => [0…9999]
+genExpr  : 0.55087 => [0…9999]
+genFunc  : 0.54844 => [0…9999]
+All results same.
+
+
+# pybench
+
+~/.../LP6E/Chapter21$ python3 pybench_tests.py
+Python 3.10.12 on linux at Jul-01-2024, 09:49:30
+0.1997  '[x ** 2 for x in range(1000)]'
+0.2138  'res=[]\nfor x in range(1000): res.append(x ** 2)'
+0.2230  'list(map(lambda x: x ** 2, range(1000)))'
+0.2104  'list(x ** 2 for x in range(1000))'
+0.2776  "s = 'hack' * 2500\nx = [s[i] for i in range(10_000)]"
+0.5160  "s = '?'\nfor i in range(10_000): s += '?'"
+
+~/.../LP6E/Chapter21$ python3 pybench_tests2.py
+Python 3.10.12 on linux at Jul-01-2024, 09:49:58
+0.2137  '{x ** 2 for x in range(1000)}'
+0.2217  'set(x ** 2 for x in range(1000))'
+0.2296  's=set()\nfor x in range(1000): s.add(x ** 2)'
+0.2142  '{x: x ** 2 for x in range(1000)}'
+0.2404  'dict((x, x ** 2) for x in range(1000))'
+0.2157  'd={}\nfor x in range(1000): d[x] = x ** 2'
+
+~/.../LP6E/Chapter21$ python3 pybench_tests3.py
+Python 3.10.12 on linux at Jul-01-2024, 09:50:12
+0.4840  "res=[]\nfor x in 'hack' * 2500: res.append(ord(x))"
+0.2648  "[ord(x) for x in 'hack' * 2500]"
+0.1404  "list(map(ord, 'hack' * 2500))"
+0.3728  "list(ord(x) for x in 'hack' * 2500)"

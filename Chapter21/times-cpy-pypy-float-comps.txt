@@ -1,0 +1,30 @@
+# How floats impact list comprehension test speed in CPython and PyPy
+# PyPy slows modestly for floats instead of ints, and less than CPython
+
+
+$ python3
+Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import timeit
+>>> min(timeit.repeat(stmt='[x ** 2 for x in range(1000)]', number=1000, repeat=5))
+0.052329765632748604
+>>> min(timeit.repeat(stmt='[x ** 2.0 for x in range(1000)]', number=1000, repeat=5))
+0.08080639503896236
+>>> min(timeit.repeat(stmt='[float(x) ** 2 for x in range(1000)]', number=1000, repeat=5))
+0.1009976901113987
+>>> min(timeit.repeat(stmt='[float(x) ** 2.0 for x in range(1000)]', number=1000, repeat=5))
+0.09676378173753619
+
+$ pypy3
+Python 3.10.14 (75b3de9d9035, Apr 21 2024, 10:56:19)
+[PyPy 7.3.16 with GCC Apple LLVM 15.0.0 (clang-1500.1.0.2.5)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>> import timeit
+>>>> min(timeit.repeat(stmt='[x ** 2 for x in range(1000)]', number=1000, repeat=5))
+0.0022287541069090366
+>>>> min(timeit.repeat(stmt='[x ** 2.0 for x in range(1000)]', number=1000, repeat=5))
+0.0028824331238865852
+>>>> min(timeit.repeat(stmt='[float(x) ** 2 for x in range(1000)]', number=1000, repeat=5))
+0.0029041911475360394
+>>>> min(timeit.repeat(stmt='[float(x) ** 2.0 for x in range(1000)]', number=1000, repeat=5))
+0.002913380041718483

@@ -1,0 +1,44 @@
+class Employee:                      # General superclass
+    def computeSalary(self): …       # Common or default behaviors
+    def giveRaise(self): …
+    def promote(self): …
+    def retire(self): …
+
+
+class Engineer(Employee):            # Specialized subclass
+     def computeSalary(self): …      # Something custom here
+
+
+sue = Employee()                     # Default behavior
+bob = Employee()                     # Default behavior
+pat = Engineer()                     # Custom salary calculator
+
+
+company = [sue, bob, pat]            # A composite object
+for emp in company:
+    print(emp.computeSalary())       # Run this object's version: default or custom
+
+
+def processor(reader, converter, writer):
+    while True:
+        data = reader.read()
+        if not data: break
+        data = converter(data)
+        writer.write(data)
+
+
+class Reader:
+    def other(self): …               # Default behavior and tools
+
+class FileReader(Reader):
+    def read(self): …                # Read from a local file
+
+class SocketReader(Reader):
+    def read(self): …                # Read from a network socket
+
+…and others…
+
+processor(FileReader(…),   converter,  FileWriter(…))
+processor(SocketReader(…), converter,  FileWriter(…))
+processor(FtpReader(…),    converter,  JsonWriter(…))
+

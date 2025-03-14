@@ -1,0 +1,63 @@
+# On Android 14, Termux app, Python 3.11, Qualcomm Snapdragon 8 gen 2, Samsung Fold 5.
+# Surprisingly faster than macOS for a mobile, though Android is Linux under the hood,
+# and these are different Pythons which may vary arbitrarily (3.11 here, 3.12 on macOS).
+# Also note that this is pure CPU time: disk access may not fare as well on Android,
+# especially when using shared storage (e.g., /sdcard) throttled in recent Androids.
+
+
+# timer
+
+~/.../LP6E/Chapter21 $ python timer_tests.py
+Python 3.11.4 on linux
+forLoop  : 0.21047 => [0…9999]
+listComp : 0.16463 => [0…9999]
+mapCall  : 0.12529 => [0…9999]
+genExpr  : 0.33828 => [0…9999]
+genFunc  : 0.33615 => [0…9999]
+All results same.
+
+~/.../LP6E/Chapter21 $ python timer_tests2.py
+Python 3.11.4 on linux
+forLoop  : 0.21849 => [10…10009]
+listComp : 0.18615 => [10…10009]
+mapCall  : 0.43246 => [10…10009]
+genExpr  : 0.36506 => [10…10009]
+genFunc  : 0.36671 => [10…10009]
+All results same.
+
+~/.../LP6E/Chapter21 $ python timer_tests3.py
+Python 3.11.4 on linux
+forLoop  : 0.36459 => [0…9999]
+listComp : 0.33162 => [0…9999]
+mapCall  : 0.32858 => [0…9999]
+genExpr  : 0.49393 => [0…9999]
+genFunc  : 0.49412 => [0…9999]
+All results same.
+
+
+# pybench
+
+~/.../LP6E/Chapter21 $ python pybench_tests.py
+Python 3.11.4 on linux at Jul-01-2024, 09:12:27
+0.0380  '[x ** 2 for x in range(1000)]'
+0.0402  'res=[]\nfor x in range(1000): res.append(x ** 2)'
+0.0650  'list(map(lambda x: x ** 2, range(1000)))'
+0.0563  'list(x ** 2 for x in range(1000))'
+0.3109  "s = 'hack' * 2500\nx = [s[i] for i in range(10_000)]"
+0.5676  "s = '?'\nfor i in range(10_000): s += '?'"
+
+~/.../LP6E/Chapter21 $ python pybench_tests2.py
+Python 3.11.4 on linux at Jul-01-2024, 09:13:13
+0.0488  '{x ** 2 for x in range(1000)}'
+0.0673  'set(x ** 2 for x in range(1000))'
+0.0556  's=set()\nfor x in range(1000): s.add(x ** 2)'
+0.0501  '{x: x ** 2 for x in range(1000)}'
+0.0920  'dict((x, x ** 2) for x in range(1000))'
+0.0536  'd={}\nfor x in range(1000): d[x] = x ** 2'
+
+~/.../LP6E/Chapter21 $ python pybench_tests3.py
+Python 3.11.4 on linux at Jul-01-2024, 09:13:46
+0.2231  "res=[]\nfor x in 'hack' * 2500: res.append(ord(x))"
+0.1834  "[ord(x) for x in 'hack' * 2500]"
+0.1428  "list(map(ord, 'hack' * 2500))"
+0.3574  "list(ord(x) for x in 'hack' * 2500)"

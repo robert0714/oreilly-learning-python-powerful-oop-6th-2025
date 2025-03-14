@@ -1,0 +1,60 @@
+# On Windows 11, Intel Core I5, Python 3.12, Command Prompt, Dell XPS 13.
+# Modestly slower than book's macOS results, due to the lesser CPU chip.
+
+
+# timer
+
+C:\...\LP6E\Chapter21>py timer_tests.py
+Python 3.12.3 on win32
+forLoop  : 0.32141 => [0…9999]
+listComp : 0.25765 => [0…9999]
+mapCall  : 0.13273 => [0…9999]
+genExpr  : 0.47498 => [0…9999]
+genFunc  : 0.47589 => [0…9999]
+All results same.
+
+C:\...\LP6E\Chapter21>py timer_tests2.py
+Python 3.12.3 on win32
+forLoop  : 0.30087 => [10…10009]
+listComp : 0.23721 => [10…10009]
+mapCall  : 0.56109 => [10…10009]
+genExpr  : 0.44469 => [10…10009]
+genFunc  : 0.45554 => [10…10009]
+All results same.
+
+C:\...\LP6E\Chapter21>py timer_tests3.py
+Python 3.12.3 on win32
+forLoop  : 0.43268 => [0…9999]
+listComp : 0.37359 => [0…9999]
+mapCall  : 0.47460 => [0…9999]
+genExpr  : 0.58015 => [0…9999]
+genFunc  : 0.58242 => [0…9999]
+All results same.
+
+
+# pybench
+
+C:\...\LP6E\Chapter21>py pybench_tests.py
+Python 3.12.3 on win32 at Jul-01-2024, 08:52:00
+0.0535  '[x ** 2 for x in range(1000)]'
+0.0611  'res=[]\nfor x in range(1000): res.append(x ** 2)'
+0.0891  'list(map(lambda x: x ** 2, range(1000)))'
+0.0752  'list(x ** 2 for x in range(1000))'
+0.3390  "s = 'hack' * 2500\nx = [s[i] for i in range(10_000)]"
+1.3331  "s = '?'\nfor i in range(10_000): s += '?'"
+
+C:\...\LP6E\Chapter21>py pybench_tests2.py
+Python 3.12.3 on win32 at Jul-01-2024, 08:52:52
+0.0671  '{x ** 2 for x in range(1000)}'
+0.0894  'set(x ** 2 for x in range(1000))'
+0.0817  's=set()\nfor x in range(1000): s.add(x ** 2)'
+0.0680  '{x: x ** 2 for x in range(1000)}'
+0.1078  'dict((x, x ** 2) for x in range(1000))'
+0.0700  'd={}\nfor x in range(1000): d[x] = x ** 2'
+
+C:\...\LP6E\Chapter21>py pybench_tests3.py
+Python 3.12.3 on win32 at Jul-01-2024, 08:53:18
+0.3462  "res=[]\nfor x in 'hack' * 2500: res.append(ord(x))"
+0.2773  "[ord(x) for x in 'hack' * 2500]"
+0.1395  "list(map(ord, 'hack' * 2500))"
+0.4805  "list(ord(x) for x in 'hack' * 2500)"
