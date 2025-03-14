@@ -1,0 +1,24 @@
+# For copy/paste again, but manual typing is recommended as syntax practice
+
+month = 3
+
+if month == 1:
+    print('January')
+elif month == 2:
+    print('February')
+elif month == 3:
+    print('March')
+ 
+match month:
+    case 1:
+        print('January')
+    case 2:
+        print('February')
+    case 3:
+        print('March')
+ 
+{1: 'January', 2: 'February', 3: 'March'}[month]
+
+['January', 'February', 'March'][month - 1]
+
+
