@@ -1,0 +1,32 @@
+>>> min(timeit.repeat('L = [1] * 1000\nL = [x + 10 for x in L]', repeat=100, number=100))
+0.001932839397341013
+>>> min(timeit.repeat('L = [1] * 1000\nL = [x + 10 for x in L]', repeat=100, number=100))
+0.0019159689545631409
+>>> min(timeit.repeat('L = [1] * 1000\nL = [x + 10 for x in L]', repeat=100, number=100))
+0.0019365190528333187
+>>> min(timeit.repeat('L = [1] * 1000\nL = [x + 10 for x in L]', repeat=100, number=100))
+0.0019365702755749226
+>>> 
+>>> 
+>>> min(timeit.repeat('L = [1] * 1000\nfor i in range(len(L)): L[i] += 10', repeat=100, number=100))
+0.003911070059984922
+>>> min(timeit.repeat('L = [1] * 1000\nfor i in range(len(L)): L[i] += 10', repeat=100, number=100))
+0.003898163326084614
+>>> min(timeit.repeat('L = [1] * 1000\nfor i in range(len(L)): L[i] += 10', repeat=100, number=100))
+0.003914771135896444
+>>> 
+>>> 
+>>> min(timeit.repeat('L = [1] * 1000\nL = [x + 10 for x in L]', repeat=100, number=100))
+0.001942827831953764
+>>> min(timeit.repeat('L = [1] * 1000\nL = [x + 10 for x in L]', repeat=100, number=100))
+0.0019423021003603935
+>>> min(timeit.repeat('L = [1] * 1000\nL = [x + 10 for x in L]', repeat=100, number=100))
+0.0019640433602035046
+>>> 
+>>> 
+>>> min(timeit.repeat('L = [1] * 1000\nfor i in range(len(L)): L[i] += 10', repeat=100, number=100))
+0.003874321933835745
+>>> min(timeit.repeat('L = [1] * 1000\nfor i in range(len(L)): L[i] += 10', repeat=100, number=100))
+0.003886221908032894
+>>> min(timeit.repeat('L = [1] * 1000\nfor i in range(len(L)): L[i] += 10', repeat=100, number=100))
+0.0038748099468648434

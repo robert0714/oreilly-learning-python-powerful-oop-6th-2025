@@ -1,0 +1,68 @@
+# 
+# --NOTE: THIS IS A CHAPTER-21 SPOILER NOT NAMED IN THE BOOK--
+#
+# Simple relative speeds of map, list comp, for, and generator.
+# Run on an Intel-based macOS with CPython 3.12 (sans 3.14+ JIT?).
+# Results in each category are listed fastest to slowest (today).
+#
+
+
+>>> import timeit
+>>> rpt, num, = 5, 100
+
+
+# --------Built-in function--------
+
+# map
+>>> min(timeit.repeat('list(map(abs, range(-100_000, 100_000)))', repeat=rpt, number=num))
+0.990583126898855
+>>> min(timeit.repeat('list(map(abs, range(-100_000, 100_000)))', repeat=rpt, number=num))
+0.9804456511046737
+
+# list comp
+>>> min(timeit.repeat('[abs(x) for x in range(-100_000, 100_000)]', repeat=rpt, number=num))
+1.1268831610213965
+>>> min(timeit.repeat('[abs(x) for x in range(-100_000, 100_000)]', repeat=rpt, number=num))
+1.1325057980138808
+ 
+# for loop
+>>> min(timeit.repeat('res=[]\nfor x in range(-100_000, 100_000): res.append(abs(x))', repeat=rpt, number=num))
+1.2324059519451112
+>>> min(timeit.repeat('res=[]\nfor x in range(-100_000, 100_000): res.append(abs(x))', repeat=rpt, number=num))
+1.2300249920226634
+
+# generator
+>>> min(timeit.repeat('list(abs(x) for x in range(-100_000, 100_000))', repeat=rpt, number=num))
+1.5676360160578042
+>>> min(timeit.repeat('list(abs(x) for x in range(-100_000, 100_000))', repeat=rpt, number=num))
+1.569781354861334
+
+
+# --------User-defined function--------
+
+>>> makefunc  =  'def inc(x): return x+10\n'   # function run by tested code
+
+# list comp
+>>> min(timeit.repeat('[inc(x) for x in range(-100_000, 100_000)]', setup=makefunc, repeat=rpt, number=num))
+1.5938219740055501
+>>> min(timeit.repeat('[inc(x) for x in range(-100_000, 100_000)]', setup=makefunc, repeat=rpt, number=num))
+1.5938090682029724
+
+# for loop
+>>> min(timeit.repeat('res=[]\nfor x in range(-100_000, 100_000): res.append(inc(x))', setup=makefunc, repeat=rpt, number=num))
+1.7023739479482174
+>>> min(timeit.repeat('res=[]\nfor x in range(-100_000, 100_000): res.append(inc(x))', setup=makefunc, repeat=rpt, number=num))
+1.7070050342008471
+
+# map
+>>> min(timeit.repeat('list(map(inc, range(-100_000, 100_000)))', setup=makefunc, repeat=rpt, number=num))
+1.7311577030923218
+>>> min(timeit.repeat('list(map(inc, range(-100_000, 100_000)))', setup=makefunc, repeat=rpt, number=num))
+1.729776764055714
+
+# generator
+>>> min(timeit.repeat('list(inc(x) for x in range(-100_000, 100_000))', setup=makefunc, repeat=rpt, number=num))
+2.229393493151292
+>>> min(timeit.repeat('list(inc(x) for x in range(-100_000, 100_000))', setup=makefunc, repeat=rpt, number=num))
+2.2455987599678338
+

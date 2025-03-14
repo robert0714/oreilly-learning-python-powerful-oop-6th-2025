@@ -1,0 +1,45 @@
+...LP6E/Examples/Chapter20$ python3 all_async_demos.py 
+1-----------------------------------------------------
+Start => [19:00:28]
+All done, serial task 1, [19:00:30]
+All done, serial task 2, [19:00:32]
+All done, serial task 3, [19:00:34]
+Stop  => [19:00:34]
+2-----------------------------------------------------
+Start => [19:00:34]
+All done, async task 1, [19:00:36]
+All done, async task 2, [19:00:36]
+All done, async task 3, [19:00:36]
+Stop  => [19:00:36]
+3-----------------------------------------------------
+Start => [19:00:36]
+All done, async task 1, [19:00:38]
+All done, async task 2, [19:00:38]
+All done, async task 3, [19:00:38]
+Stop  at [19:00:38]
+4-----------------------------------------------------
+Start => [19:00:38]
+All done, async task 2, [19:00:40]
+All done, async task 3, [19:00:40]
+All done, async task 1, [19:00:40]
+Stop  at [19:00:40]
+5-----------------------------------------------------
+Start => [19:00:40]
+['All done, async task 1, [19:00:42]', 'All done, async task 2, [19:00:42]', 'All done, async task 3, [19:00:42]']
+Stop  at [19:00:42]
+6-----------------------------------------------------
+Start => [19:00:42]
+['All done, async task 1, [19:00:44]', 'All done, async task 2, [19:00:44]', 'All done, async task 3, [19:00:44]']
+Stop  at [19:00:44]
+7-----------------------------------------------------
+Start => [19:00:44]
+All done, async task 1, [19:00:46]
+All done, async task 2, [19:00:46]
+All done, async task 3, [19:00:46]
+Stop  at [19:00:46]
+8-----------------------------------------------------
+Start => [19:00:46]
+All done, async task 1, [19:00:48]
+All done, async task 2, [19:00:50]
+All done, async task 3, [19:00:52]
+Stop  at [19:00:52]

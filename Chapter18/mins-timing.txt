@@ -1,0 +1,30 @@
+Not shown in the book, here are some initial speed tests for the min variants using Chapter 21 tools:
+
+
+>>> min(timeit.repeat(setup='from mins import min1; x = list(range(1000))', stmt='min1(*x)', repeat=10, number=1000))
+0.0196071220561862
+>>> 
+>>> min(timeit.repeat(setup='from mins import min2; x = list(range(1000))', stmt='min2(*x)', repeat=10, number=1000))
+0.017730026971548796
+>>> 
+>>> min(timeit.repeat(setup='from mins import min3; x = list(range(1000))', stmt='min3(*x)', repeat=10, number=1000))
+0.008913148660212755
+>>> 
+>>> min(timeit.repeat(setup='from mins import min4; x = list(range(1000))', stmt='min4(*x)', repeat=10, number=1000))
+0.008982725907117128
+
+
+To compare better, randomize argument order (though doing so seems to overshadow min time here):
+
+
+>>> min(timeit.repeat(setup='from mins import min1; x = list(range(1000)); import random; random.shuffle(x)', stmt='min1(*x)', repeat=10, number=1000))
+0.02311610197648406
+>>> 
+>>> min(timeit.repeat(setup='from mins import min2; x = list(range(1000)); import random; random.shuffle(x)', stmt='min2(*x)', repeat=10, number=1000))
+0.020611628890037537
+>>> 
+>>> min(timeit.repeat(setup='from mins import min3; x = list(range(1000)); import random; random.shuffle(x)', stmt='min3(*x)', repeat=10, number=1000))
+0.0777038000524044
+>>> 
+>>> min(timeit.repeat(setup='from mins import min4; x = list(range(1000)); import random; random.shuffle(x)', stmt='min4(*x)', repeat=10, number=1000))
+0.07786580640822649

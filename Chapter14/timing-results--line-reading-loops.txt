@@ -1,0 +1,35 @@
+>>> len(open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html').readlines())
+8720
+
+
+>>> min(timeit.repeat("for line in open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html'): pass", repeat=50, number=10))
+0.007345893885940313
+>>> min(timeit.repeat("for line in open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html'): pass", repeat=50, number=10))
+0.0073186736553907394
+>>> min(timeit.repeat("for line in open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html'): pass", repeat=50, number=10))
+0.00736850593239069
+>>> 
+>>> 
+>>> min(timeit.repeat("for line in open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html').readlines(): pass", repeat=50, number=10))
+0.007698073051869869
+>>> min(timeit.repeat("for line in open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html').readlines(): pass", repeat=50, number=10))
+0.007701477967202663
+>>> min(timeit.repeat("for line in open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html').readlines(): pass", repeat=50, number=10))
+0.007682951167225838
+>>> 
+>>> 
+>>> min(timeit.repeat("f = open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html')\nwhile line := f.readline(): pass", repeat=50, number=10))
+0.010289655067026615
+>>> min(timeit.repeat("f = open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html')\nwhile line := f.readline(): pass", repeat=50, number=10))
+0.010289852973073721
+>>> min(timeit.repeat("f = open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html')\nwhile line := f.readline(): pass", repeat=50, number=10))
+0.010275987908244133
+>>> 
+>>> 
+>>> min(timeit.repeat("f = open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html')\nwhile True:\n  line = f.readline()\n  if not line: break\n  pass", repeat=50, number=10))
+0.010417956858873367
+>>> min(timeit.repeat("f = open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html')\nwhile True:\n  line = f.readline()\n  if not line: break\n  pass", repeat=50, number=10))
+0.010426380205899477
+>>> min(timeit.repeat("f = open('/Users/me/MY-STUFF/Websites/Union/thumbspage/UserGuide.html')\nwhile True:\n  line = f.readline()\n  if not line: break\n  pass", repeat=50, number=10))
+0.01041519595310092
+

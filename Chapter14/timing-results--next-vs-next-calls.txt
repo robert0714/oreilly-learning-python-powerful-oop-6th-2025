@@ -1,0 +1,18 @@
+>>> min(timeit.repeat('x = range(1000)\nI = iter(x)\ntry:\n  while (n := next(I)) != None: pass\nexcept: pass', repeat=50, number=50))
+0.002267284318804741
+>>> min(timeit.repeat('x = range(1000)\nI = iter(x)\ntry:\n  while (n := next(I)) != None: pass\nexcept: pass', repeat=50, number=50))
+0.002265996765345335
+>>> min(timeit.repeat('x = range(1000)\nI = iter(x)\ntry:\n  while (n := next(I)) != None: pass\nexcept: pass', repeat=50, number=50))
+0.00226693507283926
+>>> min(timeit.repeat('x = range(1000)\nI = iter(x)\ntry:\n  while (n := next(I)) != None: pass\nexcept: pass', repeat=50, number=50))
+0.0022608228027820587
+>>> 
+>>> 
+>>> min(timeit.repeat('x = range(1000)\nI = iter(x)\ntry:\n  while (n := I.__next__()) != None: pass\nexcept: pass', repeat=50, number=50))
+0.003741227090358734
+>>> min(timeit.repeat('x = range(1000)\nI = iter(x)\ntry:\n  while (n := I.__next__()) != None: pass\nexcept: pass', repeat=50, number=50))
+0.003743179142475128
+>>> min(timeit.repeat('x = range(1000)\nI = iter(x)\ntry:\n  while (n := I.__next__()) != None: pass\nexcept: pass', repeat=50, number=50))
+0.003742293920367956
+>>> min(timeit.repeat('x = range(1000)\nI = iter(x)\ntry:\n  while (n := I.__next__()) != None: pass\nexcept: pass', repeat=50, number=50))
+0.003742912784218788
