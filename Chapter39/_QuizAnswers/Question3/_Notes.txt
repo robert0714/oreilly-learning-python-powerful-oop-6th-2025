@@ -1,0 +1,27 @@
+argtest.py
+
+  A generalized argument validator for you to study on your own. It uses a 
+  passed-in validation function, to which it passes the test’s criteria value 
+  coded for the argument in the decorator.  This handles ranges, type tests, 
+  value testers, and almost anything else you can dream up in an expressive 
+  language like Python.  This also refactors the code a bit to remove minor
+  redundancy.  See this module’s self-test files below for usage examples and
+  expected output.  Per this example’s caveats described earlier, this decorator
+  doesn’t fully work in nested mode as is: only the most deeply nested validation
+  is run for positional arguments, but its arbitrary valuetest can be used to 
+  combine differing types of tests in a single decoration (though the amount 
+  of code needed in this mode may make a simple assert more attractive!).
+
+argtest_testfunc.py
+
+  Import argtest's decorator and test it on a variety of function calls.
+
+argtest_testmeth.py
+
+  Import argtest's decorator and test it on a variety of function calls.  As we've 
+  learned, this decorator’s coding structure works for both functions and methods.
+
+results.txt
+
+  Outputs from the two preceding test scripts.
+

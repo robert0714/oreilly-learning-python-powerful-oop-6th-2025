@@ -1,0 +1,30 @@
+access.py
+
+  This, along with the following two files, satisfy the second quiz question. 
+  This first file gives the decorator: it's been augmented to return the original
+  class in optimized mode (–O), so attribute accesses don’t incur a speed hit. 
+  Mostly, it just adds the debug-mode test statements and indents the class 
+  further to the right, along with a superclass imported from the following file
+  to support built-in operations and their operator-overloading methods.
+
+access_builtins.py 
+
+  This module defines a mix-in class that is imported and subclassed by the 
+  prior file to add support for built-in operations in wrapped objects.  It uses
+  one of the earlier mix-in techniques (access_builtins_mixin_desc.py, the 
+  descriptor generator) to add some operator-overloading method redefinitions
+  inherited by the wrapper class.  The mix-in used here requires listing such 
+  methods in Public decorators if they should be runnable outside the class;
+  see earlier for alternatives that do not (but that also do not allow built-ins
+  to be made private), and expand this class's methods list as needed.
+
+access-test.py
+
+  Test the access.py here.  Here too the self-test code is split off to a 
+  separate file, so the decorator can be imported elsewhere without triggering 
+  the tests, and without requiring a __name__ test and indenting.  The same 
+  code applied is to the same class decorated with Private and then with Public.
+
+results.txt
+
+  The output of the preceding script.

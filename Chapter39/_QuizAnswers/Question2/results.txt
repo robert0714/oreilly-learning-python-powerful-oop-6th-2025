@@ -1,0 +1,25 @@
+$ python3 access-test.py
+---------------------------------------------------------
+Bob
+Sue
+Sue: 50
+private attribute fetch, age
+private attribute change, age
+---------------------------------------------------------
+bob
+sue
+sue: 50
+private attribute fetch, age
+private attribute change, age
+
+
+$ python3 -O access-test.py    # Suppresses the four access error messages
+---------------------------------------------------------
+Bob
+Sue
+Sue: 50
+---------------------------------------------------------
+bob
+sue
+sue: 50
+

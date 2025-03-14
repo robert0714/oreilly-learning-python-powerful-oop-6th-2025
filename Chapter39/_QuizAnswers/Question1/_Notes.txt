@@ -1,0 +1,23 @@
+timerdeco.py
+
+  This is one way to code the first question’s solution.  The trick lies 
+  in replacing nested classes with nested functions, so the self argument 
+  is not the decorator’s instance, and assigning the total time to the 
+  decorator function itself as an attribute, so it can be fetched later 
+  through the original rebound name.  
+
+  See the section "Decorator State Retention Options" of this chapter for
+  details.  Functions support arbitrary attribute attachment, and the 
+  function name is an enclosing scope reference in this context. If you 
+  wish to expand this further, it might be useful to also record the best
+  (minimum) call time in addition to the total time, as we did in 
+  Chapter 21's timer examples.
+
+timerdeco_test.py
+
+  Tests coded in a separate file to allow the decorator to be easily reused.
+
+results.txt
+
+  Output of the preceding script.
+

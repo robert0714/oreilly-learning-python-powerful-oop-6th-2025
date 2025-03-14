@@ -1,0 +1,21 @@
+$ python3 timerdeco_test.py
+Functions-------------------------------------------------
+[CCC]==> listcomp: 0.00000, 0.00000
+[CCC]==> listcomp: 0.25998, 0.25999
+[0, 2, 4, 6, 8]
+allTime = 0.25999
+
+[MMM]==> mapcall: 0.00001, 0.00001
+[MMM]==> mapcall: 0.42269, 0.42270
+[0, 2, 4, 6, 8]
+allTime = 0.42270
+
+Methods---------------------------------------------------
+$$ giveRaise: 0.25442, 0.25442
+$$ giveRaise: 0.25505, 0.50948
+int(sue.pay)=120000, int(bob.pay)=55000
+@@ lastName: 0.25509, 0.25509
+@@ lastName: 0.25210, 0.50719
+sue.lastName()='Jones', bob.lastName()='Smith'
+Person.giveRaise.alltime=0.50948, Person.lastName.alltime=0.50719
+

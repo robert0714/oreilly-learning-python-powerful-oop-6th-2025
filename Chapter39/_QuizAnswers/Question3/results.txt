@@ -1,0 +1,31 @@
+$ python3 argtest_testfunc.py 
+--------------------------------------------------------------------
+date = 1/2/1960
+[TypeError('date argument "y" not (1900, 2013)')]
+10.0
+10.0
+[TypeError('sum argument "a" not <class \'int\'>')]
+[TypeError('sum argument "c" not <class \'float\'>')]
+--------------------------------------------------------------------
+The sixth Edition
+The code Hack
+[TypeError('msg argument "word1" not <method \'islower\' of \'str\' objects>')]
+[TypeError('msg argument "word2" not <function <lambda> at 0x107445620>')]
+--------------------------------------------------------------------
+102
+[TypeError('manual argument "A" not <function <lambda> at 0x107445940>')]
+[TypeError('manual argument "B" not <function <lambda> at 0x107445bc0>')]
+--------------------------------------------------------------------
+1-2-lp6e
+[TypeError('nester argument "Z" not <class \'str\'>')]
+[TypeError('nester argument "Z" not <class \'str\'>')]
+?0-2-lp6e?
+[TypeError('onCall argument "X" not (1, 10)')]
+
+
+$ py3 argtest_testmeth.py 
+5000
+TypeError('meth1 argument "a" not (1, 10)')
+20000
+TypeError('meth2 argument "a" not <class \'int\'>')
+

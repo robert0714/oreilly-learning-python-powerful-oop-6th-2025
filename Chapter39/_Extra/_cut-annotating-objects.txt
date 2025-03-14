@@ -1,0 +1,26 @@
+# Augmenting decorated objects directly
+
+>>> def decorate(func):
+        func.marked = True          # Assign function attribute for later use
+        return func
+
+>>> @decorate
+... def hack(a, b):
+        return a + b
+
+>>> hack.marked
+True
+
+>>> def annotate(text):             # Same, but value is decorator argument
+        def decorate(func):
+            func.label = text
+            return func
+        return decorate
+
+>>> @annotate('hack info')
+... def hack(a, b):                 # hack = annotate(...)(hack)
+        return a + b
+
+>>> hack(1, 2), hack.label
+(3, 'hack info')
+

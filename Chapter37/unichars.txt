@@ -1,0 +1,18 @@
+
+Unicode symbols used in this chapter’s examples for cut and
+paste (read this file as UTF-8 text to decode them properly):
+
+Ä 
+☞ 
+真Л⇨ 
+🙂🙊👍 
+aÄ🙂 
+Äè 
+💛 2 hÄck 🐍
+way to 🍕
+hÄck🙂1 
+hÄck🙂2
+sub🙊 
+sub🙊bytes 
+subsub👍 
+💣 
